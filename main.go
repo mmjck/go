@@ -33,4 +33,17 @@ func main() {
 	fmt.Println("Area of rectangle:", getArea(rectangle))
 	fmt.Println("Area of circle:", getArea(circle))
 
+	pairs := pair{3, 4}
+	fmt.Println(pairs.String())
+
+	vehicles := []Vehicle{Car{}, Bicycle{}}
+	fmt.Println(vehicles)
+
+	for _, v := range vehicles {
+		if car, ok := v.(Car); ok {
+			fmt.Println(car.move())
+		} else if bike, ok := v.(Bicycle); ok {
+			fmt.Println(bike.move())
+		}
+	}
 }
