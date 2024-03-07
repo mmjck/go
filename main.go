@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func main2() {
 	fmt.Println("Hello, World!")
 
 	beyondHello()
@@ -46,4 +46,6 @@ func main() {
 			fmt.Println(bike.move())
 		}
 	}
+
+	for2()
 }
