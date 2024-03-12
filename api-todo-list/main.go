@@ -24,5 +24,6 @@ func main() {
 	r.Post("/", handlers.Create)
 	r.Put("/{id}", handlers.Update)
 	r.Delete("/{id}", handlers.Delete)
+	
 	http.ListenAndServe(fmt.Sprintf(":%s", configs.GetServerPort()), r)
 }

@@ -18,7 +18,7 @@ func say(s string) {
 	}
 }
 
-func main() {
+func main4() {
 	f("direct")
 	go f("go routine")
 
