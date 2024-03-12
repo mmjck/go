@@ -7,17 +7,22 @@ import (
 
 var total = 0
 
-func count(wg *sync.WaitGroup) {
+func count(wg *sync.WaitGroup, m *sync.Mutex) {
+	m.Lock()
 	total++
+	m.Unlock()
 	wg.Done()
 }
 
 func main() {
-	var wg sync.WaitGroup
+	var (
+		wg sync.WaitGroup
+		m  sync.Mutex
+	)
 
 	for i := 0; i < 1000; i++ {
 		wg.Add(1)
-		go count(&wg)
+		go count(&wg, &m)
 	}
 
 	wg.Wait()
