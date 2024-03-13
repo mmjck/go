@@ -34,13 +34,17 @@ func main() {
 		MaxAge:           300,
 	}))
 
+	v1Router := chi.NewRouter()
+
+	v1Router.Get("/healthz", handlerReadliness)
+	v1Router.Get("/err", handlerError)
+
 	srv := &http.Server{
 		Handler: router,
 		Addr:    ":" + port,
 	}
 
 	log.Printf("Server starting no port %v ", port)
-
 	err := srv.ListenAndServe()
 
 	if err != nil {
