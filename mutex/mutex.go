@@ -14,7 +14,7 @@ func count(wg *sync.WaitGroup, m *sync.Mutex) {
 	wg.Done()
 }
 
-func main() {
+func main2() {
 	var (
 		wg sync.WaitGroup
 		m  sync.Mutex

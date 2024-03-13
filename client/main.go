@@ -12,7 +12,7 @@ type User struct {
 	Name string `json:"name"`
 }
 
-func main() {
+func mainn() {
 	resp, err := http.Get("http://localhost:8080/")
 
 	if err != nil {

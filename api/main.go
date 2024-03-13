@@ -12,7 +12,7 @@ type User struct {
 	Name string `json:"name"`
 }
 
-func main() {
+func mainn() {
 	http.HandleFunc("/users", getUsers)
 	fmt.Println("api is on :8080")
 

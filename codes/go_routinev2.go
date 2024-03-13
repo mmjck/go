@@ -14,7 +14,7 @@ func sayTo(s string, done chan string) {
 	done <- "Finished"
 }
 
-func main() {
+func mainn() {
 	done := make(chan string)
 
 	go sayTo("world", done)

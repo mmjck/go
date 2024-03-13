@@ -9,7 +9,7 @@ import (
 	"github.com/go-chi/chi/v5"
 )
 
-func main() {
+func mainn() {
 	err := configs.Load()
 
 	if err != nil {
@@ -24,6 +24,6 @@ func main() {
 	r.Post("/", handlers.Create)
 	r.Put("/{id}", handlers.Update)
 	r.Delete("/{id}", handlers.Delete)
-	
+
 	http.ListenAndServe(fmt.Sprintf(":%s", configs.GetServerPort()), r)
 }
