@@ -1,5 +1,4 @@
 -- +goose Up
--- goose postgres "user=postgres dbname=rssagg password=geforce2020 sslmode=disable" status
 
 CREATE TABLE users (
     id UUID PRIMARY KEY,
