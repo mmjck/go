@@ -38,13 +38,12 @@ func main() {
 	fmt.Println("Port: ", port)
 	fmt.Println("DATABASE_URL: ", dbURL)
 
-	conn, err := sql.Open("postgres", dbURL)
+	db, err := sql.Open("postgres", dbURL)
 	if err != nil {
 		log.Fatal("Can't connect to database", err)
 	}
 
-	queries := database.New(conn)
-
+	queries := database.New(db)
 	apiConfig := ApiConfig{
 		DB: queries,
 	}
@@ -73,11 +72,7 @@ func main() {
 		Addr:    ":" + port,
 	}
 
-	log.Printf("Server starting no port %v ", port)
-	err = srv.ListenAndServe()
-
-	if err != nil {
-		log.Fatal(err)
-	}
+	log.Printf("Serving on port: %s\n", port)
+	log.Fatal(srv.ListenAndServe())
 
 }
