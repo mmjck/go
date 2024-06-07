@@ -13,3 +13,13 @@ func ok(context *gin.Context, status int, message string, data interface{}) {
 		Message: message,
 	})
 }
+
+func badRequest(context *gin.Context, status int, message string, erros []models.ErrorDetail) {
+	context.AbortWithStatusJSON(status, models.Response{
+		Error:   erros,
+		Status:  status,
+		Message: message,
+	})
+}
+
+//
