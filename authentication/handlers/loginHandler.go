@@ -17,7 +17,7 @@ type Login struct {
 }
 
 func NewLogin(l *log.Logger, f *models.Flags) *Login {
-	loginService := services.Login(l, f)
+	loginService := services.NewLogin(l, f)
 
 	return &Login{
 		logger:       l,
@@ -52,9 +52,9 @@ func (l *Login) Login(context *gin.Context) {
 	ok(context, http.StatusOK, "token created", tokeString)
 }
 
-func (l *Login) VerifyToken(conext *gin.Context) {
-	tokenString := conext.Request.Header.Get("apiKey")
-	referer := conext.Request.Header.Get("Referer")
+func (l *Login) VerifyToken(context *gin.Context) {
+	tokenString := context.Request.Header.Get("apiKey")
+	referer := context.Request.Header.Get("Referer")
 
 	valid, claims := l.loginService.VerifyToken(tokenString, referer)
 	if !valid {
