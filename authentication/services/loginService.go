@@ -26,7 +26,7 @@ func NewLogin(l *log.Logger, f *models.Flags) *Login {
 }
 
 func (l *Login) GetToken(model models.LoginRequest, origin string) (string, *models.ErrorDetail) {
-	user, err := l.loginRepository.GetUserByName(model.UserName, model.Password)
+	user, err := l.loginRepository.GetUserByEmail(model.Email, model.Password)
 
 	if err != nil {
 		return "", err

@@ -1,7 +1,7 @@
 package models
 
 type LoginRequest struct {
-	UserName   string `json:"UserName" from:"UserName" binding:"required"`
-	Password   string `json:"Password" from:"Password" binding:"required"`
+	Email      string `json:"email" from:"email" binding:"required"`
+	Password   string `json:"password" from:"password" binding:"required"`
 	RememberMe bool   `json:"RememberMe" from:"RememberMe"`
 }

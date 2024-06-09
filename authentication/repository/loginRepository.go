@@ -14,14 +14,14 @@ func Init() *Login {
 		models.User{
 			Id:       1,
 			Name:     "John",
-			UserName: "jhon@yopmail.com",
+			Email:    "jhon@yopmail.com",
 			Password: "jhon123",
 			Roles:    []int{1, 2, 3},
 		},
 		models.User{
 			Id:       2,
 			Name:     "Maria",
-			UserName: "maria@yopmail.com",
+			Email:    "maria@yopmail.com",
 			Password: "maria@123",
 			Roles:    []int{4},
 		},
@@ -30,9 +30,9 @@ func Init() *Login {
 	return &Login{}
 }
 
-func (l *Login) GetUserByName(username, password string) (models.User, *models.ErrorDetail) {
+func (l *Login) GetUserByEmail(email, password string) (models.User, *models.ErrorDetail) {
 	for _, value := range user {
-		if value.UserName == username && value.Password == password {
+		if value.Email == email && value.Password == password {
 			return value, nil
 		}
 	}
