@@ -2,6 +2,7 @@ package main
 
 import (
 	"authentication/models"
+	"authentication/routers"
 	"flag"
 	"fmt"
 	"log"
@@ -19,5 +20,10 @@ func main() {
 	fmt.Println("Hello, world.")
 
 	logger := log.New(os.Stdout, "auth", 1)
-	route := route.Regi
+
+	route := routers.NewRoute(logger, flags)
+	engine := route.RegisterRoutes()
+	url, _ := flags.GetApplicationUrl()
+
+	engine.Run(*url)
 }
