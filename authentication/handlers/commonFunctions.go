@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"authentication/models"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
@@ -19,6 +20,19 @@ func badRequest(context *gin.Context, status int, message string, erros []models
 		Error:   erros,
 		Status:  status,
 		Message: message,
+	})
+}
+
+func returnUnauthorized(context *gin.Context) {
+	context.AbortWithStatusJSON(http.StatusUnauthorized, models.Response{
+		Error: []models.ErrorDetail{
+			{
+				ErrorType:    models.ErrorTypeUnauthorized,
+				ErrorMessage: "You are not authorized to access this path",
+			},
+		},
+		Status:  http.StatusUnauthorized,
+		Message: "Unauthorized access",
 	})
 }
 
