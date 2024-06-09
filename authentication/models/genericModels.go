@@ -13,3 +13,10 @@ type ErrorDetail struct {
 	ErrorType    string
 	ErrorMessage string
 }
+
+type Response struct {
+	Data    interface{}
+	Status  int
+	Error   []ErrorDetail
+	Message string
+}
