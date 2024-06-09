@@ -35,5 +35,3 @@ func returnUnauthorized(context *gin.Context) {
 		Message: "Unauthorized access",
 	})
 }
-
-//
